@@ -1,0 +1,344 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public enum CarType
+{
+    Toyota = 1,
+    Subaru = 2,
+    MG = 3,
+
+}
+
+
+
+
+
+
+public class Doom
+{
+    int myInt = 6;
+    float myFloat = 1f;
+    bool myBoolean = false;
+    string myString = "Text String";
+    char myChar = 'a';
+    double myDouble = 1.75;
+    string combattext = "You punch the goblin child with ease";
+
+
+
+
+
+
+
+    public static void Main()
+    {
+
+        int[] nums = { 1, 2, 3, 4, 5 };
+        int[] newnums = new int[10];
+        Console.WriteLine("The first Array is this many long " + nums.Length);
+        Console.WriteLine("It takes this many, " + newnums.Length + "long");
+        int first = nums[0];
+        int second = nums[1];
+        nums[2] = 10;
+        string[] data = new string[] { "leadpipe", "NerfPipe", "bottle" };
+        Console.WriteLine(data[0]);
+        Console.WriteLine(data[1]);
+        Console.WriteLine(data[2]);
+
+
+
+
+
+        System.Console.WriteLine("Do eet");
+
+        var x = 1;
+        var y = 2;
+        var sum = x + y;
+        System.Console.WriteLine(sum);
+        CarType myCarType = CarType.Subaru;
+        int a = 4;
+        int b = 5;
+        if (a == 4)
+        {
+            Console.WriteLine("welcome to earf");
+        }
+        int c = 4;
+        int d = 5;
+        bool result;
+        result = c < d;
+        Console.WriteLine(result);
+        result = c > d;
+        Console.WriteLine(result);
+        result = c <= 4;
+        Console.WriteLine(result);
+        result = d >= 5;
+        Console.WriteLine(result);
+        result = c == d;
+        Console.WriteLine(result);
+        result = c != d;
+        Console.WriteLine(result);
+        result = c > d || c < d;
+        Console.WriteLine(result);
+        result = 3 < c && c < 6;
+        Console.WriteLine(result);
+        result = !result;
+        Console.WriteLine(result);
+
+        if (a == b)
+
+            Console.WriteLine("you will never see this");
+        else
+            Console.WriteLine("this is the one you see");
+
+
+        if (a != b)
+
+            Console.WriteLine("Here are again");
+        else
+            Console.WriteLine("And this");
+
+
+
+        List<int> numbers = new List<int>();
+        numbers.Add(1);
+        numbers.Add(3);
+        numbers.Add(2);
+        Console.WriteLine(numbers[1]);
+        Console.WriteLine(numbers.Count);
+
+
+        List<string> backpack = new List<string>();
+
+        backpack.Add("sandwich");
+        backpack.Add("knife");
+        backpack.Add("Compass");
+        backpack.Add("Jewel Encrusted faberge egg");
+        backpack.Add("the mail box at the start of Zork");
+
+        Console.WriteLine(backpack);
+        Console.WriteLine(backpack[1]);
+        Console.WriteLine(backpack.Count);
+        Console.WriteLine(backpack[3]);
+
+        backpack.RemoveAt(3);
+
+        Console.WriteLine(backpack.Count);
+        Console.WriteLine(backpack[3]);
+
+
+        listpack();
+
+
+
+
+
+        Dictionary<String, int> stats = new Dictionary<String, int>();
+        stats.Add("Health", 100);
+        stats["Money"] = 3400;
+
+        if (stats.ContainsKey("Money"))
+        {
+
+            Console.WriteLine("You have " + stats["Money"] + " Dollars");
+            Console.WriteLine("You have " + stats["Health"] + " Hit points");
+        }
+
+        Dictionary<String, int> fruits = new Dictionary<string, int>();
+        fruits["apple"] = 3;
+        fruits["oranage"] = 5;
+        fruits["banana"] = 2;
+        
+        foreach (var fruit in fruits)
+        {
+
+            Console.WriteLine(fruit);
+        }
+
+        string mncombattext = "The goblin tried to run away but bumps into you!";
+        
+
+
+
+
+
+        
+        int hp = 100;
+        int monsterhp = 50;
+
+
+        combat();
+        combat();
+        combat();
+        combat();
+        combat();
+        combat();
+
+
+        Console.WriteLine("the end");
+                Console.ReadLine();
+
+
+
+
+
+
+        void combatwords()
+        {
+
+            Random rnd = new Random();
+            int dice = rnd.Next(0, 6);
+
+            if (dice == 1)
+                {
+                Console.WriteLine("You punch the goblin child with ease");
+                }
+            if (dice == 2)
+            {
+                Console.WriteLine("You take off your glove and slap the goblin around a bit");
+            }
+
+            if (dice == 3)
+            {
+                Console.WriteLine("The weak goblin crumbles like dust under your boot");
+            }
+
+            if (dice == 4)
+            {
+                Console.WriteLine("You pick up the goblin with one hand and toss him off the cliff");
+            }
+
+            if (dice == 5)
+            {
+                Console.WriteLine("You trip and fall and some dust damages the Goblin");
+            }
+
+            if (dice == 6)
+            {
+                Console.WriteLine("The goblin is so stupid it stabs it self");
+            }
+
+            else 
+            {
+                Console.WriteLine("!!");
+
+
+            }
+
+        }
+
+
+        void combat()
+        {
+            healthcheck();
+            damage();
+            monsterhealthcheck();
+            monsterdamage();
+
+        }
+
+        void damage()
+
+        {
+            hp = (hp - 20);
+            stats["Health"] = hp;
+
+        }
+
+        void monsterdamage()
+
+        {
+            monsterhp = (monsterhp - 20);
+            
+
+        }
+
+        void healthcheck()
+        {
+            if (hp > 0)
+            {
+                Console.WriteLine(mncombattext);
+                Console.WriteLine("You Have " + stats["Health"] + " Health left");
+                Console.WriteLine("press a key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine("You are dead");
+                Console.WriteLine("press a key to lose...");
+                Console.ReadKey();
+            }
+        }
+
+        void monsterhealthcheck()
+            {
+                if (monsterhp > 0)
+                {
+                combatwords();
+                    Console.WriteLine("The monster has " + monsterhp + " HP left");
+                    Console.WriteLine("press a key to continue...");
+                    Console.ReadKey();
+                Console.Clear();
+            }
+                else
+                {
+                    Console.WriteLine("He dead");
+                    Console.WriteLine("you get money");
+                
+                Console.ReadKey();
+                }
+
+
+            }
+
+        void listpack()
+        {
+            foreach (var item in backpack)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Console.ReadLine();
+    }
+
+   
+
+
+}
+
+
+
+
+
+
+
